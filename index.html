@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ホームページ制作超入門講座｜SUNABACO</title>
+  <meta name="description" content="SUNABACOのホームページ制作超入門講座のご案内。初心者歓迎！HTML/CSSの基本から、無料で公開する方法までを1日で学べます。">
+  <!-- OGP（SNS共有用）-->
+  <meta property="og:title" content="ホームページ制作超入門講座｜SUNABACO">
+  <meta property="og:description" content="初心者歓迎！HTML/CSSの基本から、無料で公開する方法までを1日で学べます。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://dummyimage.com/1200x630/eeeeee/333333&text=SUNABACO+WEB入門">
+  <meta name="theme-color" content="#0ea5e9">
+  <style>
+    :root{
+      --bg:#0b1020;      /* 背景の濃紺 */
+      --card:#10172a;    /* カードの紺 */
+      --pri:#0ea5e9;     /* アクセント（空色） */
+      --pri-2:#38bdf8;   /* 明るいアクセント */
+      --text:#e5eef7;    /* 本文色 */
+      --muted:#9fb2c8;   /* 補助色 */
+      --ring:rgba(56,189,248,.35);
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;
+      background:linear-gradient(180deg,#0b1020,#0b132d);
+      color:var(--text);
+      font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;
+    }
+    a{color:var(--pri-2);text-decoration:none}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px}
+    .btn{display:inline-block;padding:14px 20px;border-radius:14px;background:linear-gradient(135deg,var(--pri),var(--pri-2));color:#041019;font-weight:700;box-shadow:var(--shadow);transition:transform .05s ease}
+    .btn:active{transform:translateY(1px)}
+    .nav{position:sticky;top:0;background:rgba(11,19,45,.7);backdrop-filter: blur(10px);border-bottom:1px solid rgba(255,255,255,.06);z-index:50}
+    .nav .wrap{display:flex;align-items:center;gap:18px}
+    .brand{font-weight:800;letter-spacing:.3px}
+    .grow{flex:1}
+    .hero{padding:60px 28px 30px}
+    .hero .wrap{display:grid;gap:26px;align-items:center;grid-template-columns:1.1fr .9fr}
+    @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+    .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:6px 10px;color:var(--muted);background:rgba(255,255,255,.03)}
+    .h1{font-size:clamp(28px,5vw,46px);line-height:1.2;margin:.2em 0 .4em;font-weight:900}
+    .lead{font-size:clamp(16px,2.6vw,19px);color:#d8e6f5}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .card.pad{padding:22px}
+    .grid{display:grid;gap:16px}
+    .grid.cols-3{grid-template-columns:repeat(3, 1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2, 1fr)}
+    @media (max-width:900px){.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}}
+    .kvs{display:grid;gap:12px}
+    .kvi{display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+    .kvi .kv{font-size:18px;font-weight:800}
+    .muted{color:var(--muted)}
+    .pill{display:inline-block;padding:4px 10px;border-radius:999px;background:rgba(56,189,248,.12);border:1px solid var(--ring);color:#bfe9ff;font-weight:700}
+    .section{padding:28px}
+    .section h2{margin:0 0 14px;font-size:24px}
+    .list{margin:10px 0 0 18px}
+    .list li{margin:.2em 0}
+    .table{width:100%;border-collapse:collapse}
+    .table th,.table td{padding:12px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left;vertical-align:top}
+    .cta{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+    .note{font-size:14px;color:var(--muted)}
+    .footer{padding:36px 28px;color:#b7c7da}
+    .iframeWrap{position:relative;min-height:720px}
+    /* フォームの高さを統一（必要に応じて数値調整OK） */
+    .iframeWrap iframe{width:100%;height:1226px;border:0;border-radius:14px;background:#fff}
+    .help{font-size:14px;margin-top:10px;color:#cfe7ff}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body>
+  <!-- ナビ -->
+  <header id="top" class="nav">
+    <div class="wrap">
+      <div class="brand">SUNABACO｜講座PR</div>
+      <div class="grow"></div>
+      <a class="btn" href="#apply" aria-label="申込みフォームへ移動">今すぐ申込む</a>
+    </div>
+  </header>
+
+  <!-- ヒーロー -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="badge">初心者歓迎 ・ パソコン1台でOK ・ 無料公開まで</div>
+        <h1 class="h1">ホームページ制作超入門講座</h1>
+        <p class="lead">HTML/CSSの基本から、GitHub Pagesでの<strong>無料公開</strong>までを一気に体験。SUNABACOメンターがやさしくガイドします。</p>
+        <div class="cta" style="margin-top:14px">
+          <a href="#apply" class="btn">この講座に申込む</a>
+          <span class="note">所要：約3〜4時間 / 持ち物：PC（Mac/Windows）</span>
+        </div>
+      </div>
+      <div class="card pad">
+        <div class="kvs">
+          <!-- ここを開催情報に合わせて編集 -->
+          <div class="kvi"><span class="kv">開催日</span> <span>2025年10月12日（日）</span></div>
+          <div class="kvi"><span class="kv">時間</span> <span>13:00〜16:30</span></div>
+          <div class="kvi"><span class="kv">会場</span> <span>SUNABACO 今治（またはオンライン）</span></div>
+          <div class="kvi"><span class="kv">対象</span> <span>プログラミング未経験〜初学者</span></div>
+          <div class="kvi"><span class="kv">定員</span> <span>15名（先着）</span></div>
+          <div class="kvi"><span class="kv">参加費</span> <span class="pill">無料</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション：学べること -->
+  <section class="section">
+    <div class="wrap grid cols-3">
+      <div class="card pad">
+        <h3>1. 基本がわかる</h3>
+        <p class="muted">HTMLタグ／CSSの役割を直感的に理解。要素の配置、文字や色の変更など基礎操作を習得します。</p>
+      </div>
+      <div class="card pad">
+        <h3>2. 形になる</h3>
+        <p class="muted">シンプルで見やすい1ページサイトを自分の手で作成。テンプレから確実に完成まで導きます。</p>
+      </div>
+      <div class="card pad">
+        <h3>3. 世界に公開</h3>
+        <p class="muted">GitHub Pagesを使って<strong>無料で公開</strong>。URLを家族や友人にすぐ共有できます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション：カリキュラム -->
+  <section class="section">
+    <div class="wrap card pad">
+      <h2>カリキュラム</h2>
+      <div class="grid cols-2">
+        <div>
+          <ol class="list">
+            <li>講座のゴール・環境確認（VS Code／GitHubアカウント）</li>
+            <li>HTMLの基本：見出し、段落、リンク、画像</li>
+            <li>CSSの基本：色・余白・レイアウト</li>
+            <li>テンプレ適用：ヒーロー／セクション／フッター</li>
+          </ol>
+        </div>
+        <div>
+          <ol class="list" start="5">
+            <li>公開準備：リポジトリ作成とアップロード</li>
+            <li>GitHub Pagesで公開（無料）</li>
+            <li>質疑応答＆次の一歩（発展学習の道しるべ）</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション：詳細情報 -->
+  <section class="section">
+    <div class="wrap card pad">
+      <h2>詳細情報</h2>
+      <table class="table" aria-label="講座の詳細情報">
+        <tr><th scope="row">持ち物</th><td>PC（Mac/Windows）／充電器／GitHubアカウント</td></tr>
+        <tr><th scope="row">必要スキル</th><td>タイピングができればOK。事前準備ガイドをメールでお送りします。</td></tr>
+        <tr><th scope="row">フォロー</th><td>当日の資料配布・質問対応。後日フォローアップも予定。</td></tr>
+        <tr><th scope="row">主催</th><td>SUNABACO</td></tr>
+      </table>
+      <p class="help">※ GitHub Pagesは静的サイトの無料ホスティングです。広告表示なし、独自ドメインは任意。</p>
+    </div>
+  </section>
+
+  <!-- セクション：FAQ -->
+  <section class="section">
+    <div class="wrap grid cols-2">
+      <div class="card pad">
+        <h2>よくある質問</h2>
+        <p><strong>Q. 完全初心者でも大丈夫？</strong><br><span class="muted">A. はい。操作は講師が一緒に進めます。つまずいたら個別にサポートします。</span></p>
+        <p><strong>Q. ソフトのインストールは必要？</strong><br><span class="muted">A. VS Code（無料）を使います。事前ガイドで導入できます。</span></p>
+        <p><strong>Q. 作ったページは残せる？</strong><br><span class="muted">A. GitHubに残るため、帰宅後の復習や改良も可能です。</span></p>
+      </div>
+      <div class="card pad">
+        <h2>講師</h2>
+        <p><span class="pill">SUNABACO メンター</span></p>
+        <p class="muted">地域の実践型プログラミングコミュニティ。つくって学ぶスタイルで初心者を徹底サポートします。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション：申込み -->
+  <section id="apply" class="section" aria-labelledby="apply-title">
+    <div class="wrap">
+      <h2 id="apply-title">申込み</h2>
+      <p class="muted">以下のフォームからお申込みください。自動返信メールが届きます。</p>
+
+      <div class="iframeWrap card pad" role="region" aria-label="申込みフォーム">
+        <p class="help" style="margin-bottom:10px">
+          フォームが表示されない場合は
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfW0eiiYwXhTNT-rmXRP0TO2jJJ9PzuqGcLhbU2IKZZltAaFQ/viewform?embedded=true"
+             rel="noopener" target="_blank">こちら</a> をクリック。
+        </p>
+
+        <iframe
+          title="SUNABACO ホームページ制作超入門講座 申込みフォーム"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfW0eiiYwXhTNT-rmXRP0TO2jJJ9PzuqGcLhbU2IKZZltAaFQ/viewform?embedded=true"
+          width="100%" height="1226" frameborder="0" marginheight="0" marginwidth="0">
+          読み込んでいます…
+        </iframe>
+      </div>
+
+      <div class="cta" style="margin-top:16px">
+        <a href="#top" class="btn" aria-label="ページ上部へ戻る">ページ上部へ戻る</a>
+        <span class="note">空席状況により受付を終了する場合があります。</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div>© <span id="y"></span> SUNABACO</div>
+      <div class="muted" style="margin-top:6px">本ページは学習用テンプレートです。必要に応じて情報を編集してください。</div>
+    </div>
+  </footer>
+
+  <script>
+    // 年表示
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // アンカーのスムーススクロール
+    document.querySelectorAll('a[href^="#"]').forEach(el=>{
+      el.addEventListener('click', e=>{
+        const id = el.getAttribute('href').slice(1);
+        const target = document.getElementById(id);
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+  </script>
+</body>
+</html>
